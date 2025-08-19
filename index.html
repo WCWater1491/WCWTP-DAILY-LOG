@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walker County WTP Daily Log</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Walker County Drinking Water Treatment Facility GA2950003</h1>
+        <h2>Daily Log Record</h2>
+    </div>
+
+    <div class="data-section">
+        <label for="date-input">Date:</label>
+        <input type="date" id="date-input" required>
+    </div>
+
+    <div class="data-section">
+        <label for="operator-name">Operator Name:</label>
+        <input type="text" id="operator-name" required>
+    </div>
+
+    <div class="data-section">
+        <h3>Meters and Totals</h3>
+        <label for="yesterdays-combined-filtrate">Yesterday's Total Combined Filtrate:</label>
+        <input type="number" id="yesterdays-combined-filtrate" class="data-field"> MG
+    </div>
+
+    <div class="data-section">
+        <h3>WCWSA Distribution Meter</h3>
+        <label for="wcwsa-yesterday-reading">Yesterday's Reading:</label>
+        <input type="number" id="wcwsa-yesterday-reading" class="data-field"> MG
+        <br>
+        <label for="wcwsa-today-reading">Today's Reading:</label>
+        <input type="number" id="wcwsa-today-reading" class="data-field"> MG
+        <br>
+        <span>Today's Total:</span>
+        <span id="wcwsa-total" class="result">0</span> gallons
+    </div>
+
+    <div class="data-section">
+        <h3>Lafayette Meter</h3>
+        <label for="lafayette-yesterday-reading">Yesterday's Reading:</label>
+        <input type="number" id="lafayette-yesterday-reading" class="data-field"> MG
+        <br>
+        <label for="lafayette-today-reading">Today's Reading:</label>
+        <input type="number" id="lafayette-today-reading" class="data-field"> MG
+        <br>
+        <span>Today's Total:</span>
+        <span id="lafayette-total" class="result">0</span> gallons
+    </div>
+    
+    <div class="data-section">
+        <h3>QC Finished Water Sample Tap</h3>
+        <label for="finished-chlorine">Chlorine Residual:</label>
+        <input type="number" id="finished-chlorine" class="data-field">
+        <br>
+        <label for="finished-turbidity">Turbidity:</label>
+        <input type="number" id="finished-turbidity" class="data-field">
+        <br>
+        <label for="finished-ph">pH:</label>
+        <input type="number" id="finished-ph" class="data-field">
+        <br>
+        <label for="finished-alkalinity">Alkalinity:</label>
+        <input type="number" id="finished-alkalinity" class="data-field">
+        <br>
+        <label for="finished-caco3">CaCo3 (Hardness):</label>
+        <input type="number" id="finished-caco3" class="data-field">
+        <br>
+        <label for="finished-iron">Iron:</label>
+        <input type="number" id="finished-iron" class="data-field">
+        <br>
+        <label for="finished-manganese">Manganese:</label>
+        <input type="number" id="finished-manganese" class="data-field">
+    </div>
+
+    <div class="data-section">
+        <h3>QC Raw Water Sample Tap</h3>
+        <label for="raw-chlorine">Chlorine Residual:</label>
+        <input type="number" id="raw-chlorine" class="data-field">
+        <br>
+        <label for="raw-turbidity">Turbidity:</label>
+        <input type="number" id="raw-turbidity" class="data-field">
+        <br>
+        <label for="raw-ph">pH:</label>
+        <input type="number" id="raw-ph" class="data-field">
+        <br>
+        <label for="raw-alkalinity">Alkalinity:</label>
+        <input type="number" id="raw-alkalinity" class="data-field">
+        <br>
+        <label for="raw-caco3">CaCo3 (Hardness):</label>
+        <input type="number" id="raw-caco3" class="data-field">
+        <br>
+        <label for="raw-iron">Iron:</label>
+        <input type="number" id="raw-iron" class="data-field">
+        <br>
+        <label for="raw-manganese">Manganese:</label>
+        <input type="number" id="raw-manganese" class="data-field">
+    </div>
+
+    <div class="data-section">
+        <h3>Entry to State Waters</h3>
+        <p class="note">(These are not daily entries)</p>
+        <label for="state-ph">pH:</label>
+        <input type="number" id="state-ph" class="data-field">
+        <br>
+        <label for="state-ntu">NTU:</label>
+        <input type="number" id="state-ntu" class="data-field">
+        <br>
+        <label for="state-mg">Total MG:</label>
+        <input type="number" id="state-mg" class="data-field">
+    </div>
+
+    <div class="data-section">
+        <h3>Yesterday's Total Filtrate</h3>
+        <label for="filtrate-rack1">Rack 1:</label>
+        <input type="number" id="filtrate-rack1" class="data-field"> MG
+        <br>
+        <label for="filtrate-rack2">Rack 2:</label>
+        <input type="number" id="filtrate-rack2" class="data-field"> MG
+        <br>
+        <label for="filtrate-rack3">Rack 3:</label>
+        <input type="number" id="filtrate-rack3" class="data-field"> MG
+        <br>
+        <label for="filtrate-rack4">Rack 4:</label>
+        <input type="number" id="filtrate-rack4" class="data-field"> MG
+    </div>
+
+    <div class="data-section">
+        <h3>Yesterday's NTU</h3>
+        <div class="rack-group">
+            <h4>Rack 1</h4>
+            <label for="ntu-rack1-min">MIN:</label>
+            <input type="number" id="ntu-rack1-min" class="data-field">
+            <br>
+            <label for="ntu-rack1-max">MAX:</label>
+            <input type="number" id="ntu-rack1-max" class="data-field">
+            <br>
+            <label for="ntu-rack1-avg">Average:</label>
+            <input type="number" id="ntu-rack1-avg" class="data-field">
+        </div>
+
+        <div class="rack-group">
+            <h4>Rack 2</h4>
+            <label for="ntu-rack2-min">MIN:</label>
+            <input type="number" id="ntu-rack2-min" class="data-field">
+            <br>
+            <label for="ntu-rack2-max">MAX:</label>
+            <input type="number" id="ntu-rack2-max" class="data-field">
+            <br>
+            <label for="ntu-rack2-avg">Average:</label>
+            <input type="number" id="ntu-rack2-avg" class="data-field">
+        </div>
+
+        <div class="rack-group">
+            <h4>Rack 3</h4>
+            <label for="ntu-rack3-min">MIN:</label>
+            <input type="number" id="ntu-rack3-min" class="data-field">
+            <br>
+            <label for="ntu-rack3-max">MAX:</label>
+            <input type="number" id="ntu-rack3-max" class="data-field">
+            <br>
+            <label for="ntu-rack3-avg">Average:</label>
+            <input type="number" id="ntu-rack3-avg" class="data-field">
+        </div>
+
+        <div class="rack-group">
+            <h4>Rack 4</h4>
+            <label for="ntu-rack4-min">MIN:</label>
+            <input type="number" id="ntu-rack4-min" class="data-field">
+            <br>
+            <label for="ntu-rack4-max">MAX:</label>
+            <input type="number" id="ntu-rack4-max" class="data-field">
+            <br>
+            <label for="ntu-rack4-avg">Average:</label>
+            <input type="number" id="ntu-rack4-avg" class="data-field">
+        </div>
+    </div>
+
+    <div class="data-section">
+        <h3>Yesterday's IT Data</h3>
+        <label for="it-start-pressure">Start Pressure:</label>
+        <input type="number" id="it-start-pressure" class="data-field">
+        <br>
+        <label for="it-end-pressure">End Pressure:</label>
+        <input type="number" id="it-end-pressure" class="data-field">
+        <br>
+        <span>Delta psi:</span>
+        <span id="it-delta" class="result">0</span>
+        <br>
+        <span>Result:</span>
+        <span id="it-result" class="result"></span>
+    </div>
+
+    <div class="data-section">
+        <h3>Yesterday's Combined Filtrate NTU</h3>
+        <label for="combined-ntu-min">MIN:</label>
+        <input type="number" id="combined-ntu-min" class="data-field">
+        <br>
+        <label for="combined-ntu-max">MAX:</label>
+        <input type="number" id="combined-ntu-max" class="data-field">
+        <br>
+        <label for="combined-ntu-avg">Average:</label>
+        <input type="number" id="combined-ntu-avg" class="data-field">
+    </div>
+
+    <div class="data-section">
+        <h3>Chemical Tanks</h3>
+        <h4>Bleach Day Tank 1</h4>
+        <label for="bleach1-yesterday">Yesterday's Reading:</label>
+        <input type="number" id="bleach1-yesterday" class="data-field"> gallons
+        <br>
+        <label for="bleach1-today">Today's Reading:</label>
+        <input type="number" id="bleach1-today" class="data-field"> gallons
+        <br>
+        <span>Total Used:</span>
+        <span id="bleach1-total" class="result">0</span> gallons
+        <br>
+
+        <h4>Bleach Day Tank 2</h4>
+        <label for="bleach2-yesterday">Yesterday's Reading:</label>
+        <input type="number" id="bleach2-yesterday" class="data-field"> gallons
+        <br>
+        <label for="bleach2-today">Today's Reading:</label>
+        <input type="number" id="bleach2-today" class="data-field"> gallons
+        <br>
+        <span>Total Used:</span>
+        <span id="bleach2-total" class="result">0</span> gallons
+        <br>
+        
+        <h4>Fluoride Day Tank</h4>
+        <label for="fluoride-yesterday">Yesterday's Reading:</label>
+        <input type="number" id="fluoride-yesterday" class="data-field"> gallons
+        <br>
+        <label for="fluoride-today">Today's Reading:</label>
+        <input type="number" id="fluoride-today" class="data-field"> gallons
+        <br>
+        <span>Total Used:</span>
+        <span id="fluoride-total" class="result">0</span> gallons
+    </div>
+
+    <div class="data-section">
+        <h3>Chemical Tank Levels</h3>
+        <label for="sodium-hydroxide-ft">Sodium Hydroxide (Caustic) Tank:</label>
+        <input type="number" id="sodium-hydroxide-ft" class="data-field"> ft.
+        <br>
+        <label for="bisulfite-ft">Bisulfite (For Neutralization) Tank:</label>
+        <input type="number" id="bisulfite-ft" class="data-field"> ft.
+        <br>
+        <label for="phosphate-ft">Phosphate Tank:</label>
+        <input type="number" id="phosphate-ft" class="data-field"> ft.
+        <br>
+        <label for="citric-acid-ft">Citric Acid Tank:</label>
+        <input type="number" id="citric-acid-ft" class="data-field"> ft.
+        <br>
+        <label for="hcl-ft">Hydrochloric Acid (HCL) Tank:</label>
+        <input type="number" id="hcl-ft" class="data-field"> ft.
+    </div>
+
+    <div class="data-section">
+        <h3>Plant Clear Wells & Distribution Tanks</h3>
+        <label for="clear-wells-level">Clear Wells Level:</label>
+        <input type="number" id="clear-wells-level" class="data-field"> %
+    </div>
+
+    <div class="data-section">
+        <h3>Distribution Tanks</h3>
+        <h4>South Mission Ridge Tank</h4>
+        <label for="mission-ridge-8am">8:00 AM:</label>
+        <input type="number" id="mission-ridge-8am" class="data-field"> %
+        <br>
+        <label for="mission-ridge-12pm">12:00 PM:</label>
+        <input type="number" id="mission-ridge-12pm" class="data-field"> %
+        <br>
+        <label for="mission-ridge-4pm">4:00 PM:</label>
+        <input type="number" id="mission-ridge-4pm" class="data-field"> %
+    </div>
+
+    <div class="data-section">
+        <h4>Mountain View Tank</h4>
+        <label for="mountain-view-8am">8:00 AM:</label>
+        <input type="number" id="mountain-view-8am" class="data-field"> %
+        <br>
+        <label for="mountain-view-12pm">12:00 PM:</label>
+        <input type="number" id="mountain-view-12pm" class="data-field"> %
+        <br>
+        <label for="mountain-view-4pm">4:00 PM:</label>
+        <input type="number" id="mountain-view-4pm" class="data-field"> %
+    </div>
+
+    <div class="data-section">
+        <h4>HWY. 136 Tanks</h4>
+        <label for="hwy136-8am">8:00 AM:</label>
+        <input type="number" id="hwy136-8am" class="data-field"> %
+        <br>
+        <label for="hwy136-12pm">12:00 PM:</label>
+        <input type="number" id="hwy136-12pm" class="data-field"> %
+        <br>
+        <label for="hwy136-4pm">4:00 PM:</label>
+        <input type="number" id="hwy136-4pm" class="data-field"> %
+    </div>
+    
+    <div class="data-section">
+        <h3>Giardia Inactivation Data</h3>
+        <label for="finished-water-temp">Finished Water Temperature:</label>
+        <input type="number" id="finished-water-temp" class="data-field"> °C
+        <br>
+        <label for="contact-time">Contact Time (T):</label>
+        <input type="number" id="contact-time" class="data-field"> minutes
+        <br>
+        <label for="daily-flow-rate">Daily Flow Rate:</label>
+        <input type="number" id="daily-flow-rate" class="data-field"> MGD
+    </div>
+
+    <div class="data-section">
+        <span id="giardia-ct-required"></span>
+        <span id="giardia-ct-actual"></span>
+        <span id="giardia-log-removal"></span>
+    </div>
+
+    <div class="buttons">
+        <button id="save-button" class="data-field">Save Daily Log</button>
+        <button id="print-button" class="data-field">Print Daily Report</button>
+        <button id="export-button" class="data-field">Export to Excel</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
